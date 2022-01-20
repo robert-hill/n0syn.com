@@ -173,10 +173,10 @@ jobs:
           hugo-version: latest
       - 
         name: Build
-        run: "hugo -D --baseURL='http://staging.robertallenhill.com/' --gc --verbose --minify"
+        run: "hugo -D --baseURL='http://staging.n0syn.com/' --gc --verbose --minify"
       - 
         name: "Deploy static site to S3 bucket"
-        run: "aws s3 sync ./public s3://rhill-n0syn-com-origin/ --delete --cache-control 'max-age=0, must-revalidate, proxy-revalidate, public'"
+        run: "aws s3 sync ./public s3://rhill-n0syn-com-staging-origin/ --delete --cache-control 'max-age=0, must-revalidate, proxy-revalidate, public'"
   deploy:
     name: "Deploy - Production"
     needs: terraform-production
